@@ -1,0 +1,47 @@
+<div class="w-96">
+  <h1 mat-dialog-title>Create New Student</h1>
+  <form [formGroup]="createNewStudentForm" (submit)="submit()">
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Student Name</mat-label>
+          <input formControlName="name" matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student Birthday</mat-label>
+          <input formControlName="dateOfBirth" matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student Gender</mat-label>
+          <input formControlName="gender" matInput type="numeric">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student Specialization</mat-label>
+          <mat-select formControlName="specializationId">
+            <mat-option *ngFor="let special of specials" [value]="special.id" >
+              {{special.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="outline">-->
+<!--          <mat-label>Student Course</mat-label>-->
+<!--          <mat-select formControlName="courseIds" multiple>-->
+<!--            <mat-option>-->
+
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close="true">Cancel</button>
+      <button mat-button [mat-dialog-close]="true" type="submit">Create</button>
+    </mat-dialog-actions>
+  </form>
+
+</div>

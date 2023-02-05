@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: auto;
+}
+
+.mat-cell{
+  @apply text-base text-blue-900;
+}
+
+.mat-header-cell{
+  @apply text-base text-blue-900;
+
+}

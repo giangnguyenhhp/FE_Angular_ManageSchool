@@ -1,0 +1,48 @@
+<div class="w-96">
+  <h1 mat-dialog-title class="text-center">Update Course</h1>
+  <form [formGroup]="updateCourse" (submit)="submit()">
+
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Course Name</mat-label>
+          <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Course Description</mat-label>
+          <input formControlName="description" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Course Credit</mat-label>
+          <input formControlName="credit" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Teacher</mat-label>
+          <mat-select formControlName="teacherIds" multiple>
+            <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+              {{teacher.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Student</mat-label>
+          <mat-select formControlName="studentIds" multiple>
+            <mat-option *ngFor="let student of student" [value]="student.id">
+              {{student.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button [mat-dialog-close]=true mat-button>Cancel</button>
+      <button mat-button [mat-dialog-close]=true type="submit">Update</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+

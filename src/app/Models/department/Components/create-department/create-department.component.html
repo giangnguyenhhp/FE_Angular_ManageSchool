@@ -1,0 +1,41 @@
+<div class="w-96">
+  <h1 mat-dialog-title class="text-center">Create New Department</h1>
+  <form [formGroup]="createNewDepartment" (submit)="submit()">
+
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Department Name</mat-label>
+          <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Department Description</mat-label>
+          <input formControlName="description" type="text" matInput>
+        </mat-form-field>
+
+<!--        <mat-form-field appearance="outline">-->
+<!--          <mat-label>Teacher</mat-label>-->
+<!--          <mat-select formControlName="teacherIds" multiple>-->
+<!--            <mat-option>-->
+
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+
+        <mat-form-field appearance="outline">
+          <mat-label>School</mat-label>
+          <mat-select formControlName="schoolId">
+            <mat-option *ngFor="let school of schools" [value]="school.id">
+              {{school.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button [mat-dialog-close]=true mat-button>Cancel</button>
+      <button mat-button [mat-dialog-close]=true type="submit">Create</button>
+    </mat-dialog-actions>
+  </form>
+</div>

@@ -1,0 +1,67 @@
+<div class="w-96">
+  <h1 mat-dialog-title class="text-center">Create New User</h1>
+  <form [formGroup]="createNewUser" (submit)="submit()">
+
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input formControlName="userName" type="text" matInput>
+        </mat-form-field>
+        <em *ngIf="validateControl('userName','required')">UserName is required</em>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="email" matInput>
+        </mat-form-field>
+        <em *ngIf="validateControl('email','email')">Please provide a valid email</em>
+        <em *ngIf="validateControl('email','required')">Email is required</em>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input formControlName="phoneNumber" type="text" matInput>
+        </mat-form-field>
+        <em *ngIf="validateControl('phoneNumber', 'required')">Phone Number is required</em>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input showHideInput id="secretaryship" formControlName="password" type="password" matInput>
+          <i matSuffix
+             class="material-icons"
+             showHideTrigger="secretaryship"
+             [showHideStatus]="{ materialIcon: true, id: 'secretaryship' }"
+          ></i>
+        </mat-form-field>
+        <em *ngIf="validateControl('password', 'required')">Password is required</em>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input showHideInput id="secretaryship2" formControlName="confirmPassword" type="password" matInput>
+          <i matSuffix
+             class="material-icons"
+             showHideTrigger="secretaryship2"
+             [showHideStatus]="{ materialIcon: true, id: 'secretaryship2' }"
+          ></i>
+        </mat-form-field>
+        <em *ngIf="validateControl('confirmPassword', 'required')">Confirmation is required</em>
+        <em *ngIf="validateControl('confirmPassword', 'mustMatch')">Passwords must match</em>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="roleNames" multiple>
+            <mat-option *ngFor="let role of roles" [value]="role.name">
+              {{role.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button [mat-dialog-close]=true mat-button>Cancel</button>
+      <button [disabled]="!createNewUser.valid" mat-button [mat-dialog-close]=true type="submit">Create</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+

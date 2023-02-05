@@ -1,0 +1,17 @@
+<div class="w-96">
+  <p mat-dialog-title class="text-center text-3xl">Map Permissions</p>
+  <mat-dialog-content class="flex flex-col">
+    <div class="m-2" *ngFor="let p of listPermissions">
+      <mat-checkbox class=""  (change)="checkPermissions(p,$event)" color="primary"
+                    [checked]="isChecked(p)">
+        <mat-label>{{p}}</mat-label>
+      </mat-checkbox>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-raised-button [mat-dialog-close]="true">Close</button>
+    <button mat-raised-button (click)="submit()">Save</button>
+  </mat-dialog-actions>
+</div>
+

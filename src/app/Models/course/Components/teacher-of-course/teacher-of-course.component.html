@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Teacher Name</th>
+  </tr>
+  <tr *ngFor="let teacher of teachers;index as i">
+    <td>{{i+1}}</td>
+    <td>
+      <a>{{teacher.name}}</a>
+    </td>
+  </tr>
+</table>

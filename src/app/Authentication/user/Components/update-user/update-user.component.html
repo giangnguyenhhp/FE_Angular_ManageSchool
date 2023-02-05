@@ -1,0 +1,51 @@
+<div class="w-96">
+  <h1 mat-dialog-title class="text-center">Update User</h1>
+  <form [formGroup]="UpdateUserFormGroup" (submit)="submit()">
+
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input formControlName="userName" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="email" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input formControlName="phoneNumber" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="currentPassword" type="password" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>New Password</mat-label>
+          <input formControlName="newPassword" type="password" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="roleNames" multiple>
+            <mat-option *ngFor="let role of roles" [value]="role.name">
+              {{role.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button [mat-dialog-close]=true mat-button>Cancel</button>
+      <button mat-button [mat-dialog-close]=true type="submit">Update</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+
+

@@ -1,0 +1,34 @@
+.login-layout {
+  @apply min-w-full min-h-full flex bg-blue-100;
+}
+
+#left {
+  @apply p-20 flex-1;
+}
+
+#right {
+  @apply md:flex-1 bg-[url('/assets/img/login.jpg')];
+}
+
+.social-btn {
+  @apply flex-1 bg-transparent hover:text-white border hover:border-transparent rounded py-2 px-4;
+}
+
+.blue-btn {
+  @apply hover:bg-blue-500 text-blue-600 border-blue-500;
+}
+
+.red-btn {
+  @apply hover:bg-red-500 text-red-600 border-red-500;
+}
+
+.cyan-btn {
+  @apply hover:bg-cyan-500 text-cyan-600 border-cyan-500;
+}
+
+mat-form-field{
+  @apply min-w-full ;
+}
+
+
+

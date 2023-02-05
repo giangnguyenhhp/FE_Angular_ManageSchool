@@ -1,0 +1,32 @@
+<div class="w-96">
+  <h1 mat-dialog-title>Update School</h1>
+  <form [formGroup]="UpdateSchoolForm" (submit)="submit()">
+
+    <mat-dialog-content class="mat-typography">
+      <div class="flex flex-col">
+        <mat-form-field appearance="outline">
+          <mat-label>School Name</mat-label>
+          <input formControlName="name" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>School Description</mat-label>
+          <input formControlName="description" type="text" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Departments</mat-label>
+          <mat-select formControlName="departmentIds" multiple>
+            <mat-option *ngFor="let department of departments" [value]="department.id">
+              {{department.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close="true">Cancel</button>
+      <button mat-button [mat-dialog-close]="true" type="submit">Update</button>
+    </mat-dialog-actions>
+  </form>
+</div>

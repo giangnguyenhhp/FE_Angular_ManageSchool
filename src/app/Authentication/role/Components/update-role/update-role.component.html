@@ -1,0 +1,24 @@
+<div class="w-96">
+  <h1 mat-dialog-title class="text-2xl text-center">Update Role</h1>
+  <form [formGroup]="updateRoleForm">
+    <mat-dialog-content class="mat-typography">
+      <mat-form-field appearance="outline" class="min-w-full">
+        <mat-label>Role Name</mat-label>
+        <input formControlName="name" type="text" matInput>
+      </mat-form-field>
+
+      <mat-label mat-dialog-title class="text-xl text-center">Role Claims</mat-label>
+        <div class="flex flex-col m-2">
+          <mat-checkbox *ngFor="let p of listPermissions"
+                        (change)="checkPermissions(p,$event)" color="primary"
+                        [checked]="isChecked(p)">
+              <mat-label>{{p}}</mat-label>
+          </mat-checkbox>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button mat-dialog-close="close">Close</button>
+      <button mat-raised-button [matDialogClose]="true" (click)="submit()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>

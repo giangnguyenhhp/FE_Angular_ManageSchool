@@ -1,0 +1,46 @@
+<mat-sidenav-container class="min-h-full">
+  <mat-sidenav #sidenav mode="side" class="w-72 bg-fuchsia-900">
+    <div>
+      <div class="pl-8 mb-10 flex"></div>
+      <div>
+        <ng-material-multilevel-menu
+          [configuration]='config'
+          [items]='appItems'
+          (selectedItem)="selectedItem($event)"
+          (menuIsReady)="menuIsReady($event)">
+        </ng-material-multilevel-menu>
+      </div>
+      <div class="m-4">
+        <button class="items-center" mat-raised-button (click)="setExpandCollapseStatus('expand')">Expand All</button>
+        &nbsp;
+        <button mat-raised-button (click)="setExpandCollapseStatus('collapse')">Collapse All</button>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="h-full">
+    <mat-toolbar color="primary">
+      <div class="flex flex-auto">
+        <div>
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div class="mt-1">
+          <a routerLink="/">Home</a>
+        </div>
+      </div>
+
+      <div class="flex">
+        <a class="cursor-pointer px-2">{{userName}}</a>
+        <a class="cursor-pointer" (click)="logOut()" >Logout</a>
+      </div>
+    </mat-toolbar>
+    <div class="content-base">
+      <h1>JavaScript Basic</h1>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

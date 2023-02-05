@@ -1,0 +1,64 @@
+<div class="bg-cyan-100 h-full">
+<mat-toolbar color="primary">
+  <span>Registration</span>
+</mat-toolbar>
+<div class="center">
+<mat-card class="min-w-full mt-3">
+  <form [formGroup]="registerFormGroup" (submit)="register()" class="form-horizontal">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="First name" formControlName="userName">
+      </mat-form-field>
+      <em *ngIf="validateControl('userName','required')">UserName is required</em>
+
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <em *ngIf="validateControl('email','email')">Please provide a valid email</em>
+      <em *ngIf="validateControl('email','required')">Email is required</em>
+
+      <mat-form-field class="full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+      </mat-form-field>
+      <em *ngIf="validateControl('phoneNumber', 'required')">Phone Number is required</em>
+
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input showHideInput matInput id="secretaryship" type="password" placeholder="Password"
+               formControlName="password">
+        <i matSuffix
+           class="material-icons"
+           showHideTrigger="secretaryship"
+           [showHideStatus]="{ materialIcon: true, id: 'secretaryship' }"
+        ></i>
+      </mat-form-field>
+      <em *ngIf="validateControl('password', 'required')">Password is required</em>
+
+      <mat-form-field class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input showHideInput matInput id="secretaryship2" type="password" placeholder="Confirm Password"
+               formControlName="confirmPassword">
+        <i matSuffix
+           class="material-icons"
+           showHideTrigger="secretaryship2"
+           [showHideStatus]="{ materialIcon: true, id: 'secretaryship2' }"
+        ></i>
+      </mat-form-field>
+      <em *ngIf="validateControl('confirmPassword', 'required')">Confirmation is required  </em>
+      <em *ngIf="validateControl('confirmPassword', 'mustMatch')">  Passwords must match</em>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="flex items-center">
+        <button mat-raised-button type="submit" [disabled]="registerFormGroup.invalid" color="primary">REGISTER</button>
+        <div class="flex-auto"></div>
+        <button mat-raised-button color="warn" routerLink="/login">Back to Login</button>
+      </div>
+    </mat-card-actions>
+  </form>
+</mat-card>
+</div>
+</div>
